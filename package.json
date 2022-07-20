@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/SergienkoNikita/frontend-project-lvl1/workflows/hexlet-check/badge.svg)](https://github.com/SergienkoNikita/frontend-project-lvl1/actions)",
   "main": "index.js",
+  "type": "module",
   "bin": {
     "code": "bin/brain-games.js"
   },
