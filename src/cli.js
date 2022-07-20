@@ -1,7 +1,15 @@
-import readlineSync from 'readline-sync';
+import { getUserInput, writeMessage } from './helpers.js';
 
-export default () => {
-  const name = readlineSync.question('May I have your name? ');
+export const initPlayer = () => {
+  const defaultName = 'noname';
+  writeMessage('Welcome to the Brain Games!');
 
-  console.log(`Hello, ${name}!`);
+  const name = getUserInput('May I have your name? ');
+
+  if (!name) {
+    writeMessage(`Ok, i'll call you ${defaultName}`);
+    return defaultName;
+  }
+
+  return name;
 };
