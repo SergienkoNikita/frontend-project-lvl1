@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
-import { ParityCheckGame } from '../src/games/patity-check-game/parity-check-game.js';
+import { gameController } from '../src/game-controller.js';
+import { evenGame } from '../src/games/even-game/even-game.js';
 
-ParityCheckGame.init();
+gameController.initGame(evenGame);

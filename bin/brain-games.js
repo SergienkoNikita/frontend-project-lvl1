@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import { initPlayer } from '../src/cli.js';
+import { gameController } from '../src/game-controller.js';
 
-initPlayer();
+gameController.initGame();
