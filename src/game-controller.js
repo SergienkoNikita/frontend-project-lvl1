@@ -18,7 +18,7 @@ class GameController {
 
     this.#playerName = getUserInput('May I have your name? ');
 
-    writeMessage(`Hello, ${this.#playerName}`);
+    writeMessage(`Hello, ${this.#playerName}!`);
   }
 
   initGame(Game) {
@@ -48,7 +48,7 @@ class GameController {
   #onUnsuccess(rightAnswer, playerAnswer) {
     this.#successRounds = 0;
     writeMessage(
-      `'${playerAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${this.#playerName}`,
+      `'${playerAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${this.#playerName}!`,
     );
   }
 
