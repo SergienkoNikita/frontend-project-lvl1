@@ -34,7 +34,8 @@ class ProgressionGame extends Game {
     this.generateProgression();
 
     const condition = [...this.progression];
-    condition[generateRandomNum(this.progressionLengthLimit) - 2] = HIDDEN_NUM_SYMBOL;
+    const randomIndex = generateRandomNum(this.progressionLengthLimit - 1, 1) - 1;
+    condition[randomIndex] = HIDDEN_NUM_SYMBOL;
     this.condition = condition.join(' ');
   }
 
