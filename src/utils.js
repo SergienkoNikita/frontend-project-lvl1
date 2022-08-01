@@ -8,4 +8,5 @@ export const writeMessage = (message = '') => {
 
 export const getUserInput = (question = '') => readlineSync.question(question);
 
-export const generateRandomNum = (range = RANDOM_NUM_RANGE) => Math.floor(Math.random() * range);
+export const generateRandomNum = (endRange = RANDOM_NUM_RANGE, startRange = 0) => Math
+  .floor(Math.random() * (endRange - startRange)) + startRange;
