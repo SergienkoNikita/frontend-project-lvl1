@@ -1,14 +1,6 @@
 import { Game } from '../game-model.js';
 import { GAME_RULES, MATH_SYMBOLS } from './constants.js';
-import { calculateMathExpression, generateRandomNum } from '../../helpers.js';
-
-const generateMatExpression = () => {
-  const mathSymbol = MATH_SYMBOLS[generateRandomNum(3)];
-  const firstNumber = generateRandomNum();
-  const secondNumber = generateRandomNum();
-
-  return [firstNumber, mathSymbol, secondNumber].join(' ');
-};
+import { generateRandomNum } from '../../utils.js';
 
 class CalcGame extends Game {
   constructor() {
@@ -16,9 +8,17 @@ class CalcGame extends Game {
     this.rules = GAME_RULES;
   }
 
-  generateRoundData() {
-    this.condition = generateMatExpression();
-    this.rightAnswer = String(calculateMathExpression(this.condition));
+  generateCondition() {
+    const mathSymbol = MATH_SYMBOLS[generateRandomNum(3)];
+    const firstNumber = generateRandomNum();
+    const secondNumber = generateRandomNum();
+
+    this.condition = [firstNumber, mathSymbol, secondNumber].join(' ');
+  }
+
+  calculateRightAnswer() {
+    // eslint-disable-next-line no-eval
+    this.rightAnswer = String(eval(this.condition));
   }
 }
 

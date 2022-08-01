@@ -1,4 +1,4 @@
-import { getUserInput, writeMessage } from './helpers.js';
+import { getUserInput, writeMessage } from './utils.js';
 
 class GameController {
   #playerName = '';

@@ -1,4 +1,4 @@
-import { getUserInput, writeMessage } from '../helpers.js';
+import { getUserInput, writeMessage } from '../utils.js';
 
 export class Game {
   userAnswer;
@@ -21,6 +21,15 @@ export class Game {
   }
 
   generateRoundData() {
+    this.generateCondition();
+    this.calculateRightAnswer();
+  }
+
+  generateCondition() {
+    return this;
+  }
+
+  calculateRightAnswer() {
     return this;
   }
 
