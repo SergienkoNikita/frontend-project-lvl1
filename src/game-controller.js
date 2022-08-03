@@ -5,6 +5,8 @@ class GameController {
 
   #successRounds = 0;
 
+  #looseGame = false;
+
   static successRoundsCountLimit = 3;
 
   static welcomeMessage = 'Welcome to the Brain Games!';
@@ -25,7 +27,7 @@ class GameController {
     if (!Game) return;
     Game.showRules();
 
-    while (this.#successRounds < GameController.successRoundsCountLimit) {
+    while (this.#successRounds < GameController.successRoundsCountLimit && !this.#looseGame) {
       this.#handleRoundResult(Game.playRound());
     }
 
@@ -47,13 +49,18 @@ class GameController {
 
   #onUnsuccess(rightAnswer, playerAnswer) {
     this.#successRounds = 0;
+    this.#looseGame = true;
+
     writeMessage(
-      `'${playerAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${this.#playerName}!`,
+      `'${playerAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.`,
     );
   }
 
   #endGame() {
-    writeMessage(`Congratulations, ${this.#playerName}!`);
+    const finalMessage = this.#looseGame
+      ? `Let's try again, ${this.#playerName}!`
+      : `Congratulations, ${this.#playerName}!`;
+    writeMessage(finalMessage);
   }
 }
 
