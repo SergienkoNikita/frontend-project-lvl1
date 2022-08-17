@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { gameController } from '../src/game-controller.js';
-import { primeGame } from '../src/games/prime-game/prime-game.js';
+import gameController from '../src/models/game-controller.js';
+import primeGame from '../src/games/prime-game.js';
 
-gameController.initGame(primeGame);
+gameController(primeGame);
