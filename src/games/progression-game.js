@@ -28,12 +28,18 @@ const progressionGame = {
 
   calculateRightAnswer(condition) {
     const indexOfHiddenNum = condition.split(' ').indexOf(HIDDEN_NUM_SYMBOL);
-    const conditionArray = indexOfHiddenNum < (condition.split(' ').length / 2)
+
+    const isHiddenInLeftPart = indexOfHiddenNum < (condition.split(' ').length / 2);
+
+    const conditionArray = isHiddenInLeftPart
       ? condition.split(' ').slice(indexOfHiddenNum + 1)
       : condition.split(' ').slice(0, indexOfHiddenNum - 1);
 
     const step = Number(conditionArray[1]) - Number(conditionArray[0]);
-    return String(Number(condition.split(' ')[indexOfHiddenNum - 1]) + step);
+
+    return isHiddenInLeftPart
+      ? String(Number(condition.split(' ')[indexOfHiddenNum + 1]) - step)
+      : String(Number(condition.split(' ')[indexOfHiddenNum - 1]) + step);
   },
 };
 
